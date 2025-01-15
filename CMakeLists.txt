@@ -47,6 +47,7 @@ target_include_directories(${TARGET_NAME} PUBLIC
         $<INSTALL_INTERFACE:include/imgui>)
 
 if(WIN32)
+    target_link_libraries(${TARGET_NAME} PRIVATE dxgi dxguid)
     if(BUILD_SHARED_LIBS)
         target_compile_definitions(${TARGET_NAME} PRIVATE IMGUI_API=__declspec\(dllexport\))
         target_compile_definitions(${TARGET_NAME} INTERFACE IMGUI_API=__declspec\(dllimport\))
